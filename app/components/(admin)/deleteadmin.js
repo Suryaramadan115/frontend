@@ -23,15 +23,13 @@ export default function Deleteadmin({data}){
 
             <div className={open ? "modal modal-open modal-middle":"modal"}>
                 <div className="modal-box">
-                <div className="flex justify-end">
-                    <button onClick={openmodal} className="btn btn-ghost text-red-700 text-2xl">x</button>
-                </div>
+               
                 <h1 className="font-nunito text-lg capitalize font-bold">
                     apakah anda yakin untuk menghapus {data.namaproduct}
                 </h1>
                 <div className="modal-action justify-end">
                     <button onClick={openmodal} className="btn btn-ghost capitalize"> cancel</button>
-                    <button onClick={deletedata} className="btn btn-ghost capitalize">save</button>
+                    <button onClick={deletedata} className="btn btn-ghost capitalize">yes</button>
                 </div>
                 </div>
             </div>
