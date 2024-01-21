@@ -5,12 +5,13 @@ import React, { useEffect, useState } from 'react'
 import logo from "../../public/logo1.svg"
 import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
-import { RxAvatar } from "react-icons/rx";
-import Link from 'next/link';
 import { addsearch,addkategori } from '@/redux/sliceredux';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useRef } from 'react';
+import Link from "next/link"
+
+
 
 
 export default function Navbar() {
@@ -21,8 +22,8 @@ export default function Navbar() {
 
     const postsearch = async(e)=>{
         e.preventDefault()
-    const result = await dispatch(addkategori(query))
-    const res = await dispatch(addsearch(query))
+    const result = await dispatch(addkategori(query.toLocaleLowerCase()))
+    const res = await dispatch(addsearch(query.toLocaleLowerCase()))
     setquery("")
 
     }
@@ -32,7 +33,6 @@ export default function Navbar() {
 
     const shop = useSelector((state)=> state.product.value)
     const product = useSelector((state)=> state.product.id)
-    console.log(product)
 
       
 
@@ -77,7 +77,7 @@ export default function Navbar() {
             </div>   
     <div className='   flex justify-between lg:flex lg:justify-between lg:gap-x-6 h-full lg:items-center'>
 
-        <div className='lg:pl-[50px] flex items-center relative pl-2'>
+        <div className='lg:pl-[50px] lg:flex items-center relative pl-2 hidden'>
             <Link href={"/"} className=''>
 
             <Image src={logo}   className='lg:w-[150px] lg:h-[150] w-[100px] h-[100px]' alt='logo'/>
@@ -91,7 +91,7 @@ export default function Navbar() {
             ref={ref}
             value={query}
             onChange={(e)=>{setquery(e.target.value)}}
-            placeholder="cari barang anda" className=' pl-2 lg:pl-6 lg:w-[800px] lg:h-[40px] rounded-xl border border-slate-300'/>
+            placeholder="cari barang anda" className=' w-[200px]  pl-2 lg:pl-6 lg:w-[800px] lg:h-[40px] rounded-xl border border-slate-300'/>
                 <button type='submit' className=' lg:text-md top-1 right-2 cursor-pointer absolute lg:right-10 lg:top-3 '>
 
             <CiSearch  className='lg:scale-150 scale-125 '/>
@@ -105,7 +105,7 @@ export default function Navbar() {
         <FaCartShopping 
                 onClick={opendata}
                 className=' inline-block lg:scale-150 hover:text-blue-700 cursor-pointer text-yellow-500'/>
-                <h1 className="absolute lg:top-[40px] lg:right-[25px] top-[60px] right-[22px] "> {shop} </h1>
+                <h1 className="absolute lg:top-[40px] lg:right-[25px] top-[40px] right-[24px] "> {shop} </h1>
 
          </div>
 
