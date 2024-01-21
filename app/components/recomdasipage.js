@@ -23,17 +23,17 @@ export default function Recomended() {
                 
   useEffect(()=>{
         getdata()
-  },[search])
+  },[search,getdata])
   return (
     <div className='min-h-screen container mt-[400px]  lg:mt-[200px] mx-auto'>
     
       <h1 className='text-center border-b border-blue-400 
-      font-bold font-nunito uppercase text-xl'>rekomendasi</h1>
+      font-bold font-nunito uppercase text-xl mb-3'>rekomendasi</h1>
 
       <div className=' object-contain w-full lg:container lg:mx-auto lg:p-5 flex flex-wrap justify-center gap-3 lg:gap-6'>
       {data.map((data)=>{
         return (
-          <div className="card lg:w-[250px] lg:h-[500px] h-[300px] w-[120px] bg-base-100 shadow-xl " key={data.id}>
+          <div className="card lg:w-[250px] lg:h-[500px] h-[300px] w-[100px] bg-base-100 shadow-xl " key={data.id}>
           <figure className="">
             <img src={data.url} alt="Shoes" className=" rounded-xl h-[350px] w-[250px] object-contain" />
           </figure>
@@ -41,7 +41,7 @@ export default function Recomended() {
             <h2 className="card-title text-xs lg:text-sm">Rp.{data.hargatotal}</h2>
             <p className="font-rubik lg:text-xl text-xs font-semibold capitalize">{data.namaproduct}</p>
             <p className="font-nunito text-blue-600 font-extrabold capitalize ">{data.category}</p>
-            <div className="  pl-2 lg:w-[200px] flex flex-row justify-between w-[120px] ">
+            <div className="   pl-2 lg:w-[200px] flex flex-row justify-between w-[95px] ">
             <p className=" text-[10px] lg:text-lg lg:h-[30px] font-mono text-slate-600 font-extrabold ">Stok:{data.stok}</p>
             <FaCartShopping
             onClick={()=>{ dispatch(addid(data)) ; dispatch(addvalue(1)) }}
