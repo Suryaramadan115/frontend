@@ -82,7 +82,7 @@ export default function Kategory() {
                     <h2 className="card-title"> <span className='text-xs lg:text-sm line-through text-slate-400'>Rp{data.hargaawal}</span></h2>
                     <h2 className=' text-xs lg:text-lg text-center font-semibold'>Rp.{data.hargatotal}</h2>
                     <p className='text-xs lg:text-lg capitalize font-rubik font-semibold text-center'>{data.namaproduct}</p>
-                    <p className='text-xs text-end lg:text-sm text-slate-600 font-semibold  text-center'>Stok :{data.stok}</p>
+                    <p className='text-xs  lg:text-sm text-slate-600 font-semibold  text-center'>Stok :{data.stok}</p>
                     <div className="card-actions justify-center">
                     <Link href={`/product/${data.id}`} className="btn btn-primary">Checkout</Link>
                     </div>
